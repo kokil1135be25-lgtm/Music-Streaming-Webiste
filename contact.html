@@ -319,68 +319,46 @@
   }
 
   /* FAQ */
-  .faq-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 22px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.5s ease 0.4s forwards;
-  }
-  .faq-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
 
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 0;
-    overflow: hidden;
-  }
-  .faq-item:last-child { border-bottom: none; }
+.faq-item:last-child { border-bottom: none; }
 
-  .faq-q {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    color: var(--text-secondary);
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 12px 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-  }
-  .faq-q:hover { color: var(--text-primary); }
-  .faq-q.open { color: var(--purple-bright); }
-  .faq-arrow {
-    font-size: 16px;
-    transition: transform 0.3s;
-    flex-shrink: 0;
-    color: var(--text-muted);
-  }
-  .faq-q.open .faq-arrow { transform: rotate(180deg); color: var(--purple-bright); }
+.faq-q {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .faq-a {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.3s;
-  }
-  .faq-a.open { max-height: 120px; padding-bottom: 12px; }
+.faq-q::-webkit-details-marker {
+  display: none; /* remove default arrow */
+}
+
+.faq-item[open] .faq-q {
+  color: var(--purple-bright);
+}
+
+.faq-arrow {
+  transition: transform 0.3s;
+}
+
+.faq-item[open] .faq-arrow {
+  transform: rotate(180deg);
+  color: var(--purple-bright);
+}
+
+.faq-a {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-bottom: 12px;
+}
 
   /* Social / connect card */
   .social-card {
@@ -402,11 +380,16 @@
     gap: 8px;
   }
 
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.social-link {
+  width: 100%;
+  justify-content: center;
+}
   .social-link {
     display: flex;
     align-items: center;
@@ -419,6 +402,9 @@
     transition: 0.25s;
     text-decoration: none;
   }
+  .social-link div {
+  text-align: center;
+}
   .social-link:hover {
     border-color: var(--border-hover);
     transform: translateX(4px);
@@ -462,6 +448,11 @@
     margin-right: 6px;
     animation: pulse 1.5s ease infinite;
   }
+  
+  .social-card {
+  grid-column: 1 / -1;
+  width: 100%;
+}
   @keyframes pulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
     50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
@@ -492,7 +483,7 @@
   <div class="sidebar">
     <h2>VibeSync</h2>
     <ul>
-      <li onclick="location.href='index.html'">🏠 Home</li>
+      <li onclick="location.href='1.html'">🏠 Home</li>
       <li onclick="location.href='explore.html'">🔍 Explore</li>
     </ul>
     <ul>
@@ -580,45 +571,46 @@
           <h3>❓ Frequently Asked</h3>
 
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFAQ(this)">
+             <summary class="faq-q">
               Why isn't my music playing?
               <span class="faq-arrow">▾</span>
-            </button>
+             </summary>
             <div class="faq-a">Check your internet connection and make sure your browser allows autoplay. Try refreshing the page or clearing cache. If the issue persists, contact us!</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFAQ(this)">
+              <summary class="faq-q">
               How do I add songs to Favorites?
               <span class="faq-arrow">▾</span>
-            </button>
+            </summary>
             <div class="faq-a">Click the ❤️ icon on any track card to instantly save it to your Favorites library. You can access them from the sidebar anytime.</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFAQ(this)">
+            <summary class="faq-q">
               Is VibeSync free to use?
               <span class="faq-arrow">▾</span>
-            </button>
+            </summary>
             <div class="faq-a">Yes! VibeSync is completely free. We're building a premium plan with offline listening and exclusive content — stay tuned!</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFAQ(this)">
+            <summary class="faq-q">
               Can I request a song or artist?
               <span class="faq-arrow">▾</span>
-            </button>
+            </summary>
             <div class="faq-a">Absolutely! Use the form on the left and select "Feature Request". We read every suggestion and love hearing what our users want.</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q" onclick="toggleFAQ(this)">
+            <summary class="faq-q">
               How do I report a bug?
               <span class="faq-arrow">▾</span>
-            </button>
+            </summary>
             <div class="faq-a">Use the "Report a Bug" link above, or fill out the form with Subject set to "Playback Problems". Screenshots are super helpful!</div>
           </div>
         </div>
+		      </div>
 
         <!-- Social links -->
         <div class="social-card">
@@ -649,25 +641,13 @@
         </div>
 
 
-      </div>
+
     </div>
 
   </div>
 </div>
 
 <script>
-
-
-
-  /* ── FAQ ── */
-  function toggleFAQ(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    // close all
-    document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
-    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
-  }
-
   /* ── Form Submit ── */
   function submitForm() {
     const name  = document.getElementById('firstName').value.trim();
@@ -693,7 +673,6 @@
     // clear form
     ['firstName','lastName','email','message'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('subject').selectedIndex = 0;
-    document.querySelectorAll('.star').forEach(s => s.classList.remove('lit'));
   }
 </script>
 <div id="toast" class="toast">
