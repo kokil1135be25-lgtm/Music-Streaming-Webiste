@@ -6,21 +6,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-base:       #d9d2ff;
-    --bg-surface:    #cfc8ff;
-    --bg-card:       #c5bdf5;
-    --bg-hover:      #b3a8e8;
-    --purple-deep:   #6b3fb8;
-    --purple-mid:    #5a34a3;
-    --purple-accent: #6b3fb8;
-    --purple-bright: #5a34a3;
-    --purple-glow:   rgba(107,63,184,0.25);
-    --pink-accent:   #9b5a9f;
-    --text-primary:  #2d2d42;
-    --text-secondary:#505070;
-    --text-muted:    #767688;
-    --border:        rgba(107,63,184,0.2);
-    --border-hover:  rgba(107,63,184,0.35);
+    --bg-base:       #0a0718;
+    --bg-surface:    #110d29;
+    --bg-card:       #1c1250;
+    --bg-hover:      #2a1b67;
+    --purple-deep:   #2d1f5e;
+    --purple-mid:    #4a2f8a;
+    --purple-accent: #7c4dcc;
+    --purple-bright: #9b6de0;
+    --purple-glow:   rgba(124,77,204,0.35);
+    --pink-accent:   #b06ab3;
+    --text-primary:  #ede6ff;
+    --text-secondary:#c1b8ff;
+    --text-muted:    #9188b7;
+    --border:        rgba(124,77,204,0.22);
+    --border-hover:  rgba(124,77,204,0.45);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +53,7 @@
   /* ─── SIDEBAR ─── */
   .sidebar {
     width: 220px;
-    background: linear-gradient(180deg, #cfc8ff 0%, #c5bdf5 100%);
+    background: linear-gradient(180deg, #170f3f 0%, #1c1250 100%);
     border-right: 1px solid var(--border);
     padding: 24px 16px;
     position: fixed;
@@ -144,12 +144,16 @@
     object-fit: cover;
     filter: brightness(1.1) saturate(0.9);
   }
-  .slide::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(217,210,255,0.85) 0%, rgba(197,189,245,0.3) 60%, transparent 100%);
-  }
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(12, 8, 30, 0.85) 0%,
+    rgba(45, 31, 94, 0.55) 45%,
+    rgba(74, 47, 138, 0.2) 100%
+  );
+}
   .slide-text {
     position: absolute;
     top: 50%;
@@ -157,19 +161,28 @@
     transform: translateY(-50%);
     z-index: 2;
   }
-  .slide-text h1 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: #1a1a2e;
-    line-height: 1.2;
-  }
-  .slide-text p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-top: 6px;
-  }
+.slide-text h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.slide-text p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
 
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%,
+    rgba(124,77,204,0.25),
+    transparent 60%);
+  z-index: 1;
+}
   .carousel-dots {
     position: absolute;
     bottom: 14px;
@@ -396,7 +409,7 @@
     left: 0;
     right: 0;
     height: 72px;
-    background: rgba(217,210,255,0.95);
+    background: rgba(17,9,41,0.95);
     backdrop-filter: blur(20px);
     border-top: 1px solid var(--border);
     padding: 0 28px;
@@ -585,17 +598,6 @@
   margin-bottom: 10px;
 }
 
-  /* ─── FOOTER ─── */
-  .footer {
-    text-align: center;
-    padding: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-size: 13px;
-    margin-top: 40px;
-    background: var(--bg-surface);
-  }
-  .footer span { color: var(--purple-accent); }
 </style>
 </head>
 <body>
@@ -808,14 +810,6 @@
         <div class="album-info"><h4>Indie Dreams</h4><p>Various Artists</p></div>
       </div>
     </div>
-
-    <!-- MEET THE DEVELOPERS -->
-
-
-    <div class="footer">
-      Made with <span>♥</span> by Kavya &amp; Kokil &nbsp;·&nbsp; <span>VibeSync</span> &copy; 2025
-    </div>
-  </div><!-- /main -->
 
 </div><!-- /container -->
 
