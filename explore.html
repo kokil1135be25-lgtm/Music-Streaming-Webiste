@@ -6,18 +6,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-base:#0a0a0f;--bg-surface:#11111c;--bg-card:#17172a;--bg-hover:#1e1e35;
-  --purple-deep:#2d1f5e;--purple-mid:#4a2f8a;--purple-accent:#7c4dcc;
-  --purple-bright:#9b6de0;--purple-glow:rgba(124,77,204,0.25);
-  --pink-accent:#b06ab3;--text-primary:#e8e0f5;--text-secondary:#9e8fc0;
-  --text-muted:#5c5480;--border:rgba(124,77,204,0.18);--border-hover:rgba(124,77,204,0.45);
+  --bg-base:#d9d2ff;--bg-surface:#cfc8ff;--bg-card:#c5bdf5;--bg-hover:#b3a8e8;
+  --purple-deep:#6b3fb8;--purple-mid:#5a34a3;--purple-accent:#6b3fb8;
+  --purple-bright:#5a34a3;--purple-glow:rgba(107,63,184,0.25);
+  --pink-accent:#9b5a9f;--text-primary:#2d2d42;--text-secondary:#505070;
+  --text-muted:#767688;--border:rgba(107,63,184,0.2);--border-hover:rgba(107,63,184,0.35);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Poppins',sans-serif;background:var(--bg-base);color:var(--text-primary);overflow:hidden}
 
-.sidebar{width:220px;background:linear-gradient(180deg,#0e0e1a 0%,#0a0a14 100%);border-right:1px solid var(--border);padding:24px 16px;position:fixed;height:100vh;overflow-y:auto;scrollbar-width:none;z-index:50}
+.sidebar{width:220px;background:linear-gradient(180deg,#cfc8ff 0%,#c5bdf5 100%);border-right:1px solid var(--border);padding:24px 16px;position:fixed;height:100vh;overflow-y:auto;scrollbar-width:none;z-index:50}
 .sidebar::-webkit-scrollbar{display:none}
-.sidebar h2{font-size:26px;font-weight:700;letter-spacing:-.5px;background:linear-gradient(135deg,#9b6de0,#b06ab3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:28px;padding-left:6px}
+.sidebar h2{font-size:26px;font-weight:700;letter-spacing:-.5px;background:linear-gradient(135deg,#6b3fb8,#9b6de0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:28px;padding-left:6px}
 .sidebar ul{list-style:none}
 .sidebar li{padding:9px 12px;border-radius:10px;margin:3px 0;cursor:pointer;font-size:14px;color:var(--text-secondary);transition:.2s;display:flex;align-items:center;gap:8px}
 .sidebar li:hover{background:var(--bg-hover);color:var(--text-primary)}
@@ -26,7 +26,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-base);color:var(--text
 
 .main{margin-left:220px;flex:1;padding:28px 32px 100px;min-height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--purple-deep) transparent}
 .main::-webkit-scrollbar{width:4px}
-.main::-webkit-scrollbar-thumb{background:var(--purple-deep);border-radius:4px}
+.main::-webkit-scrollbar-thumb{background:#c0b4ff;border-radius:4px}
 
 .
 .sr-list{display:flex;flex-direction:column;gap:10px}
@@ -99,7 +99,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-base);color:var(--text
 .special-item span{font-size:10px;color:var(--text-muted);text-align:center}
 .special-item:hover p,.special-item.selected p{color:var(--text-primary)}
 
-.player{position:fixed;bottom:0;left:0;right:0;height:72px;background:rgba(11,11,20,.92);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:100}
+.player{position:fixed;bottom:0;left:0;right:0;height:72px;background:rgba(217,210,255,0.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:100}
 .player-track{display:flex;align-items:center;gap:12px;min-width:200px}
 .player-track-thumb{width:44px;height:44px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border);overflow:hidden;flex-shrink:0}
 .player-track-thumb img{width:100%;height:100%;object-fit:cover}
@@ -119,6 +119,17 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-base);color:var(--text
 .volume{width:80px;height:3px;-webkit-appearance:none;appearance:none;background:var(--bg-hover);border-radius:2px;cursor:pointer}
 .volume::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--purple-bright);cursor:pointer}
 audio{display:none}
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 13px;
+    background: var(--bg-surface);
+  }
+  .footer span { color: var(--purple-accent); }
 </style>
 </head>
 <body>
@@ -450,5 +461,8 @@ document.addEventListener('DOMContentLoaded', () => {
   buildSpecialSection('podcastsSection', '🎧 Podcasts', PODCASTS, 'podcast');
 });
 </script>
+<div class="footer">
+  Made with <span>♥</span> by Kavya &amp; Kokil &nbsp;·&nbsp; <span>VibeSync</span> &copy; 2025
+</div>
 </body>
 </html>
