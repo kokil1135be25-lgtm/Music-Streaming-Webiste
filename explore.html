@@ -180,7 +180,7 @@ audio{display:none}
 <div class="sidebar">
     <h2>VibeSync</h2>
     <ul>
-      <li class="active">🏠 Home</li>
+      <li onclick="location.href='index.html'">🏠 Home</li>
       <li onclick="location.href='explore.html'">🔍 Explore</li>
     </ul>
     <ul> 
@@ -500,7 +500,37 @@ document.addEventListener('DOMContentLoaded', () => {
   buildSpecialSection('recommendedSection', '❤️ Recommended Playlists', RECOMMENDED, 'recommended');
   buildSpecialSection('trendingSection', '🔥 Trending Now', TRENDING, 'trending');
   buildSpecialSection('podcastsSection', '🎧 Podcasts', PODCASTS, 'podcast');
+  
+  // Set active sidebar item based on current page
+  setActiveSidebarItem();
 });
+
+/* SET ACTIVE SIDEBAR ITEM */
+function setActiveSidebarItem() {
+  const currentPath = window.location.pathname;
+  const sidebarItems = document.querySelectorAll('.sidebar li');
+  
+  sidebarItems.forEach(item => {
+    // Remove active class from all items first
+    item.classList.remove('active');
+    
+    // Check if this item's onclick matches current page
+    const onclickAttr = item.getAttribute('onclick');
+    if (onclickAttr) {
+      if (currentPath.includes('explore.html') && onclickAttr.includes('explore.html')) {
+        item.classList.add('active');
+      } else if (currentPath.includes('index.html') && onclickAttr.includes('index.html')) {
+        item.classList.add('active');
+      } else if (currentPath.includes('favorite.html') && onclickAttr.includes('favorite.html')) {
+        item.classList.add('active');
+      } else if (currentPath.includes('aboutus.html') && onclickAttr.includes('aboutus.html')) {
+        item.classList.add('active');
+      } else if (currentPath.includes('contact.html') && onclickAttr.includes('contact.html')) {
+        item.classList.add('active');
+      }
+    }
+  });
+}
 </script>
 <div class="footer">
   Made with <span>♥</span> by Kavya &amp; Kokil &nbsp;·&nbsp; <span>VibeSync</span> &copy; 2025
