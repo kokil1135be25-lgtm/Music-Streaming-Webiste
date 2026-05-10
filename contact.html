@@ -305,29 +305,6 @@
   .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,77,204,0.45); }
   .submit-btn:active { transform: translateY(0); }
 
-  /* success toast */
-  .toast {
-    position: fixed;
-    bottom: 90px;
-    right: 28px;
-    background: linear-gradient(135deg, #1a1a2e, #17172a);
-    border: 1px solid var(--purple-accent);
-    border-radius: 14px;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--text-primary);
-    z-index: 200;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: 0.4s;
-    box-shadow: 0 8px 30px rgba(45,31,94,0.6);
-    pointer-events: none;
-  }
-  .toast.show { transform: translateY(0); opacity: 1; }
-  .toast-icon { font-size: 18px; }
 
   /* ─── RIGHT COLUMN ─── */
   .right-col {
@@ -491,18 +468,6 @@
     .contact-grid { grid-template-columns: 1fr; }
     .info-cards { grid-template-columns: 1fr; }
   }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    text-align: center;
-    padding: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-size: 13px;
-    margin-top: 40px;
-    background: var(--bg-surface);
-  }
-  .footer span { color: var(--purple-accent); }
 </style>
 </head>
 <body>
@@ -695,23 +660,10 @@
       return;
     }
 
-    // show toast
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
-
-    // clear form
     ['firstName','lastName','email','message'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('subject').selectedIndex = 0;
   }
 
 </script>
-<div class="footer">
-  Made with <span>♥</span> by Kavya &amp; Kokil &nbsp;·&nbsp; <span>VibeSync</span> &copy; 2025
-</div>
-<div id="toast" class="toast">
-  <span class="toast-icon">✅</span>
-  Message sent successfully!
-</div>
 </body>
 </html>

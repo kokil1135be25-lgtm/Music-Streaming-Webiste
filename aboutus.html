@@ -39,6 +39,12 @@ body::before{
   z-index:0;
 }
 
+/* FADE-IN KEYFRAMES */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* SIDEBAR */
 .sidebar{
   width:220px;
@@ -120,6 +126,7 @@ body::before{
   text-transform:uppercase;
   color:var(--purple-light);
   margin-bottom:24px;
+  animation: fadeUp 0.6s ease both;
 }
 .hero-badge span{
   width:6px;height:6px;
@@ -141,6 +148,7 @@ body::before{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  animation: fadeUp 0.6s ease 0.15s both;
 }
 .hero h1 em{
   font-style:italic;
@@ -152,37 +160,28 @@ body::before{
   max-width:540px;
   line-height:1.7;
   font-weight:300;
-}
-.note{
-  position:absolute;
-  font-size:28px;
-  opacity:0.08;
-  animation:floatNote 8s ease-in-out infinite;
-  pointer-events:none;
-  user-select:none;
-}
-@keyframes floatNote{
-  0%,100%{transform:translateY(0) rotate(0deg);opacity:0.06;}
-  50%{transform:translateY(-30px) rotate(15deg);opacity:0.12;}
+  animation: fadeUp 0.6s ease 0.3s both;
 }
 
 /* CONTENT */
 .content{padding:20px 50px 60px;}
 
-/* Shared scroll-reveal */
-.section,.split,.stats-bar,.dev-section{
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity 0.7s ease,transform 0.7s ease;
-}
-.section,.split,.stats-bar,.dev-section,
-.section.visible,.split.visible,.stats-bar.visible,.dev-section.visible{
+/* Sections — always visible, staggered CSS animation */
+.section,
+.split,
+.stats-bar,
+.dev-section {
   margin-bottom:70px;
+  animation: fadeUp 0.7s ease both;
 }
-.section.visible,.split.visible,.stats-bar.visible,.dev-section.visible{
-  opacity:1;
-  transform:translateY(0);
-}
+
+/* Stagger each block */
+.stats-bar    { animation-delay: 0.1s; }
+#split1       { animation-delay: 0.2s; }
+#features     { animation-delay: 0.3s; }
+#why          { animation-delay: 0.4s; }
+#devs         { animation-delay: 0.5s; }
+#future       { animation-delay: 0.6s; }
 
 .section-label{
   font-size:11px;
@@ -484,15 +483,6 @@ body::before{
 ::-webkit-scrollbar-track{background:var(--bg-base);}
 ::-webkit-scrollbar-thumb{background:var(--purple-accent);border-radius:3px;}
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:30px;
-  border-top:1px solid var(--border);
-  color:var(--text-secondary);
-  font-size:13px;
-}
-.footer span{color:var(--purple-light);}
 
 /* DIVIDER */
 .fancy-hr{
@@ -522,19 +512,14 @@ body::before{
     <li class="active">ⓘ About Us</li>
   </ul>
   <ul>
-          <li onclick="location.href='contact.html'">📞 Contact Us</li>
-        </ul>
+    <li onclick="location.href='contact.html'">📞 Contact Us</li>
+  </ul>
 </div>
 
 <div class="main">
 
   <div class="hero">
     <div class="hero-bg"></div>
-    <div class="note" style="left:8%;top:20%;animation-delay:0s;">♪</div>
-    <div class="note" style="left:15%;bottom:25%;animation-delay:1.5s;">♫</div>
-    <div class="note" style="right:10%;top:30%;animation-delay:0.8s;">♬</div>
-    <div class="note" style="right:20%;bottom:20%;animation-delay:2.5s;">♩</div>
-    <div class="note" style="left:40%;top:10%;animation-delay:3s;">♭</div>
     <div class="hero-badge"><span></span>Now Playing</div>
     <h1>Music that<br><em>moves you</em></h1>
     <p>VibeSync is where sound meets soul — a platform built by music lovers, for music lovers.</p>
@@ -644,20 +629,7 @@ body::before{
 
   </div>
 
-  <div class="footer">
-    Made with <span>♥</span> by Kavya &amp; Kokil &nbsp;·&nbsp; <span>VibeSync</span> &copy; 2025
-  </div>
-
 </div>
 
-<script>
-// Reveal on scroll
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('.section,.split,.stats-bar,.dev-section').forEach(el => observer.observe(el));
-
-</script>
 </body>
 </html>
