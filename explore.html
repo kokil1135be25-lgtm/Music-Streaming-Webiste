@@ -424,11 +424,8 @@ function playSong(songTitle, songImg, artistName) {
   thumb.src = songImg;
   thumb.onerror = () => { thumb.src = 'https://picsum.photos/44/44?1'; };
   currentSong = { title: songTitle, img: songImg, artistName };
-  const audio = document.getElementById('audio');
-  audio.src = 'song1.mpeg';
-  audio.play();
-  isPlaying = true;
-  document.getElementById('playIcon').innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  isPlaying = false;
+  document.getElementById('playIcon').innerHTML = '<path d="M8 5v14l11-7z"/>';
 }
 
 /* TOGGLE PLAY */

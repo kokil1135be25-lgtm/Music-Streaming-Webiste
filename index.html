@@ -732,12 +732,12 @@
     <!-- TRENDING -->
     <div class="section-head">Trending Now <span>🚀</span></div>
     <div class="trending-row">
-      <div class="trend-card" onclick="playSong(this, 'https://i.ytimg.com/vi/bAH2IkN0b5M/hq720.jpg', 'Blinding Lights', 'The Weeknd')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.ytimg.com/vi/bAH2IkN0b5M/hq720.jpg', 'Trending movies', 'Dhurandar')">
         <span class="rank">01</span>
         <img src="https://i.ytimg.com/vi/bAH2IkN0b5M/hq720.jpg" alt="Blinding Lights">
         <div class="trend-info"><h4>Trending movies</h4><p>Dhurandar</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27411c6c7e02b36e5d3f6e1d1a1', 'Kesariya', 'Arijit Singh')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27411c6c7e02b36e5d3f6e1d1a1', 'Love Songs', 'Arijit Singh')">
         <span class="rank">02</span>
         <img src="https://static.toiimg.com/thumb/msid-127702669,imgsize-34008,width-400,resizemode-4/arijit-singh.jpg" alt="Kesariya">
         <div class="trend-info"><h4>Love Songs</h4><p>Arijit Singh</p></div>
@@ -747,12 +747,12 @@
         <img src="https://media.pitchfork.com/photos/592c55445e6ef95969326b55/2:1/w_2560%2Cc_limit/4e9fe179.jpg" alt="Shape of You">
         <div class="trend-info"><h4>Shape of You</h4><p>Ed Sheeran</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275000000000000000000000001', 'Apna Bana Le', 'Arijit Singh')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275000000000000000000000001', 'Rap Music', 'Seedhe Maut')">
         <span class="rank">04</span>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQShSu7oNcS_Y3-Ko4FGuScBOLKkLdZapEgIA&s" alt="Apna Bana Le">
         <div class="trend-info"><h4>Rap Music</h4><p>Seedhe Maut</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275111111111111111111111111', 'Perfect', 'Ed Sheeran')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275111111111111111111111111', 'Metal Songs', 'Metallica')">
         <span class="rank">05</span>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_ugJ-pgMeBZNDRltJo3BQ8138YUTXeGn8w&s" alt="Perfect">
         <div class="trend-info"><h4>Metal Songs</h4><p>Metallica</p></div>
@@ -762,12 +762,12 @@
         <img src="https://i8.amplience.net/i/naras/Dua-Lipa-2024-GRAMMYs-GettyImages-1986165304" alt="Levitating">
         <div class="trend-info"><h4>Levitating</h4><p>Dua Lipa</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275333333333333333333333333', 'Shivers', 'Ed Sheeran')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275333333333333333333333333', 'Death Metal', 'Slipknot')">
         <span class="rank">07</span>
         <img src="https://static.independent.co.uk/2022/09/30/14/SK2022%2010%20smr-1.jpg" alt="Shivers">
         <div class="trend-info"><h4>Death Metal</h4><p>Slipknot</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275444444444444444444444444', 'Heat Waves', 'Glass Animals')">
+      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275444444444444444444444444', 'For You', 'Karan Aujla')">
         <span class="rank">08</span>
         <img src="https://i.cbc.ca/ais/1.7247028,1719411530000/full/max/0/default.jpg?im=Crop%2Crect%3D%28111%2C34%2C1374%2C772%29%3B" alt="Heat Waves">
         <div class="trend-info"><h4>For You</h4><p>Karan Aujla</p></div>
@@ -886,6 +886,12 @@
     document.getElementById('nowArtist').textContent = artistName;
     playing = false;
     playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    if (artistName === 'Krishna') {
+      audio.src = 'song1.mpeg';
+      audio.play();
+      playing = true;
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    }
   }
 
   audio.ontimeupdate = () => {
