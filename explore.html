@@ -365,7 +365,7 @@ function buildSections() {
       const bub = document.createElement('div');
       bub.className = 'artist-bubble';
       bub.innerHTML = `<img src="${artist.img}" alt="${artist.name}"><p>${artist.name}</p>`;
-      bub.onclick = () => playSong(artist.songs[0].title, artist.songs[0].img, artist.name);
+      bub.onclick = () => playSong(artist.songs[0].title, artist.img, artist.name);
       row.appendChild(bub);
     });
     container.appendChild(sec);
