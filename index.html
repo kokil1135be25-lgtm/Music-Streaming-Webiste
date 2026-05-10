@@ -158,7 +158,6 @@
 }
 
 
-
   /* ─── SECTION HEADINGS ─── */
   .section-head {
     font-size: 20px;
@@ -224,14 +223,12 @@
   }
   
   .track-card:hover .track-img-wrap {
+    transform: translateY(-8px);
   transform: scale(1.08);
   border-color: var(--purple-bright);
   box-shadow:
     0 0 20px rgba(124,77,204,0.5),
     0 0 40px rgba(124,77,204,0.3);
-}
-.track-card:hover {
-  transform: translateY(-8px);
 }
 
   .track-card:nth-child(3):hover { transform: translateY(-8px) scale(1.12); }
@@ -287,19 +284,6 @@
   .trend-info { padding: 12px 14px; }
   .trend-info h4 { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 3px; }
   .trend-info p { font-size: 12px; color: var(--text-secondary); }
-
-  .rank {
-    position: absolute;
-    top: 10px;
-    left: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--purple-bright);
-    background: rgba(45,45,66,0.7);
-    padding: 2px 8px;
-    border-radius: 6px;
-    backdrop-filter: blur(6px);
-  }
 
   /* ─── ALBUMS ─── */
   .albums {
@@ -482,71 +466,7 @@
 
   audio { display: none; }
 
-/* ─── DEVELOPERS SECTION ─── */
-.dev-section {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers everything horizontally */
-  text-align: center;
-}
 
-.dev-section .section-head {
-  justify-content: center; /* centers heading + emoji */
-  text-align: center;
-}
-
-.dev-about {
-  max-width: 500px;       /* prevents long single line */
-  margin: 12px auto 30px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.dev-cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.dev-card {
-  width: 160px;
-  text-align: center;
-}
-
-.dev-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid var(--border);
-}
-
-.dev-card h4 {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.dev-card p {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-.dev-section .section-head {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* centers the heading properly */
-  align-items: center;
-  text-align: center;
-}
-.dev-title {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
 
 </style>
 </head>
@@ -558,7 +478,7 @@
   <div class="sidebar">
     <h2>VibeSync</h2>
     <ul>
-      <li class="active">🏠 Home</li>
+      <li>🏠 Home</li>
       <li onclick="location.href='explore.html'">🔍 Explore</li>
     </ul>
     <ul> 
@@ -632,21 +552,21 @@
         <h4>Raat Ki Rani</h4>
         <p>Seedhe Maut</p>
       </div>
-      <div class="track-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275e88c93c5c5b0e6eaf8ffffb9', 'Blinding Lights', 'The Weeknd')">
+      <div class="track-card" onclick="playSong(this, 'https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg', 'Blinding Lights', 'The Weeknd')">
         <div class="track-img-wrap">
           <img src="https://www.rollingstone.com/wp-content/uploads/2020/02/TheWeeknd.jpg" alt="Blinding Lights">
         </div>
         <h4>Blinding Lights</h4>
         <p>The Weeknd</p>
       </div>
-      <div class="track-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27411c6c7e02b36e5d3f6e1d1a1', 'Kesariya', 'Arijit Singh')">
+      <div class="track-card" onclick="playSong(this, 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202207/Kesariya-Brahmastra-Ranbir-Kap_1200x768.jpeg?VersionId=7XIxpyAi34HEBZv2KZlNcFe7cgbelr3e&size=690:388', 'Kesariya', 'Arijit Singh')">
         <div class="track-img-wrap">
           <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202207/Kesariya-Brahmastra-Ranbir-Kap_1200x768.jpeg?VersionId=7XIxpyAi34HEBZv2KZlNcFe7cgbelr3e&size=690:388" alt="Kesariya">
         </div>
         <h4>Kesariya</h4>
         <p>Arijit Singh</p>
       </div>
-      <div class="track-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27444bb4a8c8d1f8b4e3a1c2d0b', 'Shape of You', 'Ed Sheeran')">
+      <div class="track-card" onclick="playSong(this, 'https://i1.sndcdn.com/artworks-000205276174-rkz33n-t500x500.jpg', 'Shape of You', 'Ed Sheeran')">
         <div class="track-img-wrap">
           <img src="https://i1.sndcdn.com/artworks-000205276174-rkz33n-t500x500.jpg" alt="Shape of You">
         </div>
@@ -659,42 +579,34 @@
     <div class="section-head">Trending Now <span>🚀</span></div>
     <div class="trending-row">
       <div class="trend-card" onclick="playSong(this, 'https://i.ytimg.com/vi/bAH2IkN0b5M/hq720.jpg', 'Trending movies', 'Dhurandar')">
-        <span class="rank">01</span>
         <img src="https://i.ytimg.com/vi/bAH2IkN0b5M/hq720.jpg" alt="Blinding Lights">
         <div class="trend-info"><h4>Trending movies</h4><p>Dhurandar</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27411c6c7e02b36e5d3f6e1d1a1', 'Love Songs', 'Arijit Singh')">
-        <span class="rank">02</span>
+      <div class="trend-card" onclick="playSong(this, 'https://static.toiimg.com/thumb/msid-127702669,imgsize-34008,width-400,resizemode-4/arijit-singh.jpg', 'Love Songs', 'Arijit Singh')">
         <img src="https://static.toiimg.com/thumb/msid-127702669,imgsize-34008,width-400,resizemode-4/arijit-singh.jpg" alt="Kesariya">
         <div class="trend-info"><h4>Love Songs</h4><p>Arijit Singh</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b27444bb4a8c8d1f8b4e3a1c2d0b', 'Shape of You', 'Ed Sheeran')">
-        <span class="rank">03</span>
+      <div class="trend-card" onclick="https://media.pitchfork.com/photos/592c55445e6ef95969326b55/2:1/w_2560%2Cc_limit/4e9fe179.jpg', 'Shape of You', 'Ed Sheeran')">
         <img src="https://media.pitchfork.com/photos/592c55445e6ef95969326b55/2:1/w_2560%2Cc_limit/4e9fe179.jpg" alt="Shape of You">
         <div class="trend-info"><h4>Shape of You</h4><p>Ed Sheeran</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275000000000000000000000001', 'Rap Music', 'Seedhe Maut')">
-        <span class="rank">04</span>
+      <div class="trend-card" onclick="playSong(this, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQShSu7oNcS_Y3-Ko4FGuScBOLKkLdZapEgIA&s', 'Rap Music', 'Seedhe Maut')">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQShSu7oNcS_Y3-Ko4FGuScBOLKkLdZapEgIA&s" alt="Apna Bana Le">
         <div class="trend-info"><h4>Rap Music</h4><p>Seedhe Maut</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275111111111111111111111111', 'Metal Songs', 'Metallica')">
-        <span class="rank">05</span>
+      <div class="trend-card" onclick="playSong(this, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_ugJ-pgMeBZNDRltJo3BQ8138YUTXeGn8w&s', 'Metal Songs', 'Metallica')">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-_ugJ-pgMeBZNDRltJo3BQ8138YUTXeGn8w&s" alt="Perfect">
         <div class="trend-info"><h4>Metal Songs</h4><p>Metallica</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275222222222222222222222222', 'Levitating', 'Dua Lipa')">
-        <span class="rank">06</span>
+      <div class="trend-card" onclick="playSong(this, 'https://i8.amplience.net/i/naras/Dua-Lipa-2024-GRAMMYs-GettyImages-1986165304', 'Levitating', 'Dua Lipa')">
         <img src="https://i8.amplience.net/i/naras/Dua-Lipa-2024-GRAMMYs-GettyImages-1986165304" alt="Levitating">
         <div class="trend-info"><h4>Levitating</h4><p>Dua Lipa</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275333333333333333333333333', 'Death Metal', 'Slipknot')">
-        <span class="rank">07</span>
+      <div class="trend-card" onclick="playSong(this, 'https://static.independent.co.uk/2022/09/30/14/SK2022%2010%20smr-1.jpg', 'Death Metal', 'Slipknot')">
         <img src="https://static.independent.co.uk/2022/09/30/14/SK2022%2010%20smr-1.jpg" alt="Shivers">
         <div class="trend-info"><h4>Death Metal</h4><p>Slipknot</p></div>
       </div>
-      <div class="trend-card" onclick="playSong(this, 'https://i.scdn.co/image/ab67616d0000b275444444444444444444444444', 'For You', 'Karan Aujla')">
-        <span class="rank">08</span>
+      <div class="trend-card" onclick="playSong(this, 'https://i.cbc.ca/ais/1.7247028,1719411530000/full/max/0/default.jpg?im=Crop%2Crect%3D%28111%2C34%2C1374%2C772%29%3B', 'For You', 'Karan Aujla')">
         <img src="https://i.cbc.ca/ais/1.7247028,1719411530000/full/max/0/default.jpg?im=Crop%2Crect%3D%28111%2C34%2C1374%2C772%29%3B" alt="Heat Waves">
         <div class="trend-info"><h4>For You</h4><p>Karan Aujla</p></div>
       </div>
@@ -753,9 +665,6 @@
 
   <div class="controls">
     <div class="ctrl-btns">
-      <button title="Shuffle">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zm4.41-1.17h2l-3.5-3.5-1.41 1.41L13.17 8H15zm0 8h-2l-6.5-6.5-1.41 1.41L7 13h-2l3.5 3.5 1.41-1.41L8.83 14H10l6.5 6.5 1.41-1.41L15 16zm1.41-8L19 5.41 17.59 4l-5.17 5.17 1.41 1.41L15 8.41l1 1.59h-1z"/></svg>
-      </button>
       <button title="Previous">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
       </button>
@@ -764,9 +673,6 @@
       </button>
       <button title="Next">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/></svg>
-      </button>
-      <button title="Repeat">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
       </button>
     </div>
     <div class="progress-wrap">
@@ -811,7 +717,7 @@
     document.getElementById('nowPlaying').textContent = songName;
     document.getElementById('nowArtist').textContent = artistName;
     playing = false;
-    playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    // playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
     if (artistName === 'Krishna') {
       audio.src = 'song1.mpeg';
       audio.play();
@@ -834,36 +740,6 @@
   document.getElementById('volume').oninput = function() {
     audio.volume = this.value / 100;
   };
-  /* SET ACTIVE SIDEBAR ITEM */
-  function setActiveSidebarItem() {
-    const currentPath = window.location.pathname;
-    const sidebarItems = document.querySelectorAll('.sidebar li');
-    
-    sidebarItems.forEach(item => {
-      // Remove active class from all items first
-      item.classList.remove('active');
-      
-      // Check if this item's onclick matches current page
-      const onclickAttr = item.getAttribute('onclick');
-      if (onclickAttr) {
-        if (currentPath.includes('index.html') && onclickAttr.includes('index.html')) {
-          item.classList.add('active');
-        } else if (currentPath.includes('explore.html') && onclickAttr.includes('explore.html')) {
-          item.classList.add('active');
-        } else if (currentPath.includes('favorite.html') && onclickAttr.includes('favorite.html')) {
-          item.classList.add('active');
-        } else if (currentPath.includes('aboutus.html') && onclickAttr.includes('aboutus.html')) {
-          item.classList.add('active');
-        } else if (currentPath.includes('contact.html') && onclickAttr.includes('contact.html')) {
-          item.classList.add('active');
-        }
-      }
-    });
-  }
-
-  // Initialize active sidebar item on page load
-  setActiveSidebarItem();
-
 </script>
 </body>
 </html>
